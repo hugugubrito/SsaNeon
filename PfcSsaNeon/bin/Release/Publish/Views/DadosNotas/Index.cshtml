@@ -1,0 +1,162 @@
+﻿@model IEnumerable<PfcSsaNeon.Models.DadosNota>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div id="navsuperior">
+    <img src="~/Content/imgs/logo.png" alt="Alternate Text" />
+    <div id="configTP">
+        <p class="txtnomeusuario" style="color:white">@ViewBag.Nome</p>
+        <div id="BtnTP">
+            <button>
+                @Html.ActionLink("Alterar Senha", "ForgotPassword", "Account")
+            </button>
+            <button>
+                @Html.ActionLink("LogOff", "LogOff", "Account")
+            </button>
+        </div>
+    </div>
+</div>
+
+<div id="Teladedados">
+    <!-- barra de menu -->
+    <div class="menuvertical">
+        <ul id="nav">
+            <li>
+                @Html.ActionLink("Recursos humanos", "Index", "Home")
+            </li>
+            <li>
+                @Html.ActionLink("Finanças", "Index", "DadosNotas")
+            </li>
+            <li>
+                @Html.ActionLink("Usuários", "GerenciarUsuarios", "Account")
+            </li>
+        </ul>
+    </div>
+
+    <div class="tabeladedados">
+
+        @{var f1 = ViewBag.f1;}
+        @{var dtAtual = System.DateTime.Now;}
+        <div class="aTabela" style="overflow:scroll;margin-top: 00px;">
+            <p>
+                @Html.ActionLink("Create New", "Create")
+            </p>                     
+            @using (Html.BeginForm())
+            {
+                <input typeof="text" name="numero" placeholder="Filtrar Pelo Nº NotaFiscal" />
+                <input type="submit" class="button" value="Pesquisar" />
+            }
+            <table class="table" id="tabelaPrincipalFinancas" border="1">
+                <tr>
+                    <th>
+                        Alerta
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Cliente)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.CNPJ)
+                    </th>
+                    <th>
+                        Nº Nota Fiscal
+                    </th>
+                    <th>
+                        Emissão
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Valor)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Vencimento)
+                    </th>
+                    <th>
+                        Observção
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Status)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Pagamento)
+                    </th>
+                    <th>
+                        Cobraça
+                    </th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        @if (item.Status == PfcSsaNeon.Models.Status.VENCIDO)
+                        {
+                            <td style="background-color:red"></td>
+                        }
+                        else
+                        {
+                            if (item.Status == PfcSsaNeon.Models.Status.PENDENTE)
+                            {
+                                <td style="background-color:yellow"></td>
+                            }
+                            else if (item.Status == PfcSsaNeon.Models.Status.PAGO)
+                            {
+                                <td style="background-color:green"></td>
+                            }
+                            else if (item.Status == PfcSsaNeon.Models.Status.CANCELADO)
+                            {
+                                <td style="background-color:black"></td>
+                            }
+                        }
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Cliente)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CNPJ)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NumeroNf)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Emissao)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Valor)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Vencimento)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Observacao)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Status)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Pagamento)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Cobranca)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Editar", "Edit", new { id = item.DadosNotaId })
+                        </td>
+                        <td>
+                            @Html.ActionLink("Detalhes", "Details", new { id = item.DadosNotaId })
+                        </td>
+                        <td>
+                            @Html.ActionLink("Cancelar Nota", "CancelarNota", new { id = item.DadosNotaId })
+                        </td>
+                        <td>
+                            @Html.ActionLink("Arquivos", "Index", "ArquivoNotas", new { id = item.DadosNotaId }, null)
+                        </td>
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>
+

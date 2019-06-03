@@ -1,0 +1,86 @@
+﻿
+@{
+    ViewBag.Title = "EditarUsuario";
+}
+
+<div class="navbar-default " style="background-color:#384892">
+    @using (Html.BeginForm("Index", "Home"))
+    {
+        <button name="button" value="ActionOne" class="button" style="background-color:#384892; border:0;">
+            <img src="~/Content/Imgs/logo.png" />
+        </button>
+    }
+</div>
+
+<div id="Teladedados">
+    <div class="tabeladedados" style="margin-left: 100px;margin-right: 100px; overflow:scroll;background-color:lightgrey">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="form-horizontal">
+                            <hr />
+
+                            <div class="form-group">
+                                <label class="control-label col-md-2">EMail</label>
+                                <div class="col-md-10">
+                                    <input type="text" name="Email" value="@ViewBag.Usuario.Email" readonly />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-2">permissões RH</label>
+                                <div class="col-md-10">
+                                    <input type="number" name="PRh" value="@ViewBag.Usuario.PRh" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-2">permissões Financeiro</label>
+                                <div class="col-md-10">
+                                    <input type="number" name="PFinanceiro" value="@ViewBag.Usuario.PFinanceiro" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="control-label col-md-2">permissões Administrador</label>
+                                <div class="col-md-10">
+                                    <input type="number" name="PUsuario" value="@ViewBag.Usuario.PUsuario" />
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Save" class="btn btn-default" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6" style="margin-top:50px">
+                        <h4>
+                            LV1 - LEITURA BASICA
+                        </h4>
+                        <h4>
+                            LV2 - CADASTRO/EDIÇÃO BASICO
+                        </h4>
+                        <h4>
+                            LV3 - VISUALIZAÇÃO COMPLETA
+                        </h4>
+                        <h4>
+                            LV4 - EDIÇÃO COMPLETA
+                        </h4>
+                        <h4>
+                            LV5 -  ADMINISTRAÇÃO BASICA
+                        </h4>
+                        <h4>
+                            LV6 - ADMINISTRAÇÃO COMPLETA
+                        </h4>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

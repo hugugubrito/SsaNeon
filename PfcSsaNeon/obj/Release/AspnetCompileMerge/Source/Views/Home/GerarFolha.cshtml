@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="navbar-default " style="background-color:#384892">
+    @using (Html.BeginForm("Index", "Home"))
+    {
+        <button name="button" value="ActionOne" class="button" style="background-color:#384892; border:0;">
+            <img src="~/Content/Imgs/logo.png" />
+        </button>
+    }
+</div>
+
+<div id="Teladedados">
+
+    <div class="tabeladedados" style="margin-left: 100px;margin-right: 100px;">
+
+        @{var f1 = ViewBag.f1;}
+        @{var dtAtual = System.DateTime.Now;}
+        <div class="aTabela" style="overflow-y: scroll; ">
+            <p>Tabela de Funcionarios</p>
+            <table class="table realceLinha" id="TabelaGerarFolha" border="1">
+                <thead>
+                    <tr>
+                        <th>
+                            Nome
+                        </th>
+                        <th>
+                            Sobrenome
+                        </th>
+                        <th>
+                            CPF
+                        </th>
+                        <th>
+
+                        </th>
+                        <th>
+
+                        </th>
+                    </tr>
+                </thead>
+                @{
+                    var funcionario = ViewBag.FuncionariosId;
+                }
+                <tbody>
+                    @foreach (var item in funcionario)
+                    {
+                        <tr>
+                            <td>
+                                @item.Nome
+                            </td>
+                            <td>
+                                @item.Sobrenome
+                            </td>
+                            <td>
+                                @item.CPF
+                            </td>
+
+                            <td>
+                                @Html.ActionLink("Bonificações", "Create", "Descontos", new { id = item.FuncionarioId, negativo = true }, null)
+                            </td>
+
+                            <td>
+                                @Html.ActionLink("Criar Descontos", "Create", "Descontos", new { id = item.FuncionarioId, negativo = false }, null)
+                            </td>
+
+                            <td>
+                                @Html.ActionLink("Gerar", "DadosFolha", "Folha", new { id = item.FuncionarioId }, null)
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#TabelaGerarFolha').DataTable({
+        });
+    });
+</script>

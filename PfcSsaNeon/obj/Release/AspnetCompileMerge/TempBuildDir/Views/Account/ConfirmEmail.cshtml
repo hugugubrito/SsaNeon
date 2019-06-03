@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Confirmar Email";
+}
+
+<div class="navbar-default " style="background-color:#384892">
+    @using (Html.BeginForm("Index", "Home"))
+    {
+        <button name="button" value="ActionOne" class="button" style="background-color:#384892; border:0;">
+            <img src="~/Content/Imgs/logo.png" />
+        </button>
+    }
+</div>
+
+<div id="Teladedados">
+    <div class="tabeladedados" style="margin-left: 100px;margin-right: 100px; overflow:scroll;background-color:lightgrey">
+        <h2 class="text-center">@ViewBag.Title.</h2>
+        <div>
+            <p class="text-center">
+                Obrigado por confirmar o seu email. Por gentileza, @Html.ActionLink("Clique aqui para fazer o log in", "Login", "Account",routeValues: null, htmlAttributes: new { id = "loginLink" })
+            </p>
+        </div>
+    </div>
+</div>

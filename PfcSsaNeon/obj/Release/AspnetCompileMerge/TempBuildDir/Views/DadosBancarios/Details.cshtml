@@ -1,0 +1,49 @@
+﻿@model PfcSsaNeon.Models.DadosBancario
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<div>
+    <h4>DadosBancario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Funcionarios.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Funcionarios.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Banco)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Banco)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AG)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Conta)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DadosBancarioId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

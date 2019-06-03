@@ -1,0 +1,49 @@
+﻿@model IEnumerable<PfcSsaNeon.Models.DadosBancario>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Funcionarios.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Banco)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Conta)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Funcionarios.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Banco)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AG)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Conta)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DadosBancarioId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DadosBancarioId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DadosBancarioId })
+        </td>
+    </tr>
+    }
+
+</table>

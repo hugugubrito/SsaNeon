@@ -1,0 +1,51 @@
+﻿@model IEnumerable<PfcSsaNeon.Models.ArquivoNota>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<div class="navbar-default " style="background-color:#384892">
+    @using (Html.BeginForm("Index", "Home"))
+    {
+        <button name="button" value="ActionOne" class="button" style="background-color:#384892; border:0;">
+            <img src="~/Content/Imgs/logo.png" />
+        </button>
+    }
+</div>
+<div id="Teladedados">
+    <div class="tabeladedados" style="margin-left: 100px;margin-right: 100px; overflow:scroll;background-color:lightgrey">
+        <p>
+            @Html.ActionLink("Voltar", "Index", "DadosNotas")
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.DadosNota.Cliente)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.NomeArquivo)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.DadosNota.Cliente)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.NomeArquivo)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ArquivoNotaId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.ArquivoNotaId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ArquivoNotaId })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>

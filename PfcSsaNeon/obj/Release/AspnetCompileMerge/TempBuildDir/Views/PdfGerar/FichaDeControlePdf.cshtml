@@ -1,0 +1,49 @@
+﻿@model SsaNeon.Helper.FichaDeControle
+
+@{
+    ViewBag.Title = "FichaDeControlePdf";
+    Layout = "~/Views/Shared/LayoutPdfGerar.cshtml";
+}
+
+<div>
+    <img src="~/Content/Imgs/LogoFolha.PNG" width="500" height="200" style="margin-top:0px"/>
+</div>
+
+<p class="text-center">Tecnologia em comunicação visual</p>
+<p class="text-center">Praça Marechal deodoro n15 Salvador Neon- Comércio - Salvador - Bahia -tel: 71 2104-5800 fax: 71 2504-5801</p>
+<p class="text-center">Email: Junior@Salvadorneon.com.br site:www.salvadorneon.com.br</p>
+<div style="margin-right:100px">
+    <h5 class="text-center" style="margin-top:20px">Ficha De Controle</h5>
+    <p class="text-right">Numero-Op: @ViewBag.Ficha.NumeroOp</p>
+</div>
+
+<table class="table">
+    <tr>
+        <th>Cliente: @ViewBag.Ficha.Nome</th>
+        <th></th>
+        <th></th>
+    </tr>
+    <tr>
+        <th>End: @ViewBag.Ficha.END</th>
+        <th></th>
+        <th></th>
+    </tr>
+    <tr>
+        <th>Local: @ViewBag.Ficha.Local</th>
+        <th></th>
+        <th></th>
+    </tr>
+    <tr>
+        <th>Telefone: @ViewBag.Ficha.Telefone</th>
+        <th><p>Hora de Entrada:</p><p>Hora de Saida:</p></th>
+        <th>Data De Entrega:</th>
+    </tr>
+ </table>
+<img src="~/Content/Imgs/Folha.PNG" width="900" height="600"/>
+<p class="text-center" style="margin-top:20px">
+    @ViewBag.Ficha.Atendimento
+</p class="text-center">
+<p class="text-center">_______________________</p>
+<p class="text-center">
+    Atendimento
+</p>

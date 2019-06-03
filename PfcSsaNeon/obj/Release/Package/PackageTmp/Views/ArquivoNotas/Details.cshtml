@@ -1,0 +1,63 @@
+﻿@model PfcSsaNeon.Models.ArquivoNota
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+
+div class="navbar-default " style="background-color:#384892">
+@using (Html.BeginForm("Index", "Home"))
+{
+    <button name="button" value="ActionOne" class="button" style="background-color:#384892; border:0;">
+        <img src="~/Content/Imgs/logo.png" />
+    </button>
+}
+</div>
+<div id="Teladedados">
+    <div class="tabeladedados" style="margin-left: 100px;margin-right: 100px; overflow:scroll;background-color:lightgrey">
+        <div>
+            <h4>ArquivoNota</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.DadosNota.Cliente)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.DadosNota.Cliente)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.NomeArquivo)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.NomeArquivo)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.CaminhoArquivo)
+                </dt>
+                @if (ViewBag.mime == "application/pdf")
+                {
+                    <dd>
+                        <embed height="700" width="700" name="PDF" src="~/Notas/@Model.NomeArquivo" type="application/pdf" />
+                    </dd>
+                }
+                else if (ViewBag.mime == "image/jpeg" || ViewBag.mime == "image/jpg" || ViewBag.mime == "image/png")
+                {
+                    <dd>
+                        <img height="700" width="700" src="~/Notas/@Model.NomeArquivo" name="IMG" />
+                    </dd>
+                }
+
+
+            </dl>
+        </div>
+        <p>
+            @Html.ActionLink("Editar", "Edit", new { id = Model.ArquivoNotaId }) |
+            @Html.ActionLink("Voltar", "Index", new { id = Model.ArquivoNotaId })
+        </p>
+    </div>
+</div>

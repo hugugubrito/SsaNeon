@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="DefaultConnection-Web.config Connection String" description="DefaultConnection A Cadeia de Conexão usada em web.config pelo aplicativo para acessar o banco de dados." defaultValue="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-PfcSsaNeon-20190601015547.mdf;Initial Catalog=aspnet-PfcSsaNeon-20190601015547;Integrated Security=True" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\hugo\\Downloads\\repos02_06\\repos\\PfcSsaNeon\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+  <parameter name="PfcSsaNeonContext-Web.config Connection String" description="PfcSsaNeonContext A Cadeia de Conexão usada em web.config pelo aplicativo para acessar o banco de dados." defaultValue="Data Source=(localdb)\MSSQLLocalDB; Initial Catalog=PfcSsaNeonContext-20190601173021; Integrated Security=True; MultipleActiveResultSets=True; AttachDbFilename=|DataDirectory|PfcSsaNeonContext-20190601173021.mdf" tags="SqlConnectionString">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\hugo\\Downloads\\repos02_06\\repos\\PfcSsaNeon\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='PfcSsaNeonContext']/@connectionString" />
+  </parameter>
+</parameters>

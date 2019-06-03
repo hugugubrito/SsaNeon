@@ -1,0 +1,75 @@
+﻿@model PfcSsaNeon.Helper.FolhaSalario
+
+@{
+    ViewBag.Title = "dadosFolha";
+}
+
+<div class="navbar-default " style="background-color:#384892">
+    @using (Html.BeginForm("Index", "Home"))
+    {
+        <button name="button" value="ActionOne" class="button" style="background-color:#384892; border:0;">
+            <img src="~/Content/Imgs/logo.png" />
+        </button>
+    }
+</div>
+<div id="Teladedados">
+    <div class="tabeladedados" style="margin-left: 100px;margin-right: 100px; overflow:scroll;background-color:lightgrey">
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Folha Do Salario</h4>
+            <hr />
+            <div class="form-group" style="display: none;">
+                <label class="control-label col-md-2">Id do Salario</label>
+                <div class="col-md-10">
+                    @{var FuncionarioId = ViewBag.Funcionario;}
+                    @Html.TextBox("FuncionarioId", (int)FuncionarioId, new { @readonly = "readonly" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2"> Data de Inicio</label>
+                <div class="col-md-10">
+                    <input type="date" name="d1" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2"> Data Final</label>
+                <div class="col-md-10">
+                    <input type="date" name="d2" class="form-control" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-md-2">Forma de Pagamentol</label>
+                <div class="col-md-10">
+                    <input type="text" name="FormaPagamento"  class="form-control"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class = "control-label col-md-2" > Ferias?</label>           
+                <div class="col-md-10">
+                    <div class="checkbox">
+                        @Html.EditorFor(model => model.isFerias)
+                        @Html.ValidationMessageFor(model => model.isFerias, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+        }
+        <input type='button' value='Voltar' onclick='history.go(-1)' />
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

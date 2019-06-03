@@ -1,0 +1,53 @@
+﻿@model IEnumerable<PfcSsaNeon.Models.Salario>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Funcionarios.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Base)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.INSS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Familia)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Funcionarios.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Base)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.INSS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Familia)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.SalarioId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.SalarioId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.SalarioId })
+            </td>
+        </tr>
+    }
+
+</table>

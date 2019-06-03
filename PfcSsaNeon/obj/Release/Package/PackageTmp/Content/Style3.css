@@ -1,0 +1,61 @@
+﻿#barralogin {
+    background-color: #384892;
+    width: 100%;
+    padding: 30px;
+    display: inline-block;
+    margin-top: auto
+}
+
+.divimg {
+    width: auto;
+    height: auto;
+    float: left;
+    background-color: #E4EBE7;
+    display: inline-block;
+    float: left;
+}
+
+.divp {
+    width: auto;
+    height: auto;
+    float: right;
+    background-color: #E4EBE7;
+    float: left;
+    padding-left: 250px;
+    padding-top: 250px;
+}
+
+.paragrafo1 {
+    font-size: 40px;
+}
+
+#alogin {
+    height: auto;
+    width: auto;
+    background-color: #E4EBE7;
+}
+
+body {
+    background-color: white;
+}
+
+#img1 {
+    margin-top: 100px;
+    margin-left: 80px;
+}
+
+#imglogo {
+    float: left;
+}
+
+#losen {
+    margin-top: 15px;
+    float: right;
+}
+
+.l1 {
+    float: left;
+    margin-right: 10px;
+    font-weight: bold;
+    font-size: 20px;
+}

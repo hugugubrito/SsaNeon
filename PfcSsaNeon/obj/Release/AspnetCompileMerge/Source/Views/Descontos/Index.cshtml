@@ -1,0 +1,56 @@
+﻿@model IEnumerable<PfcSsaNeon.Models.Desconto>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Salarios.SalarioId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Percento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Valor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Data)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Salarios.SalarioId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Percento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Valor)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Descricao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Data)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DescontoId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DescontoId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DescontoId })
+        </td>
+    </tr>
+    }
+
+</table>

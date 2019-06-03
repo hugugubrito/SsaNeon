@@ -1,0 +1,367 @@
+﻿@model PfcSsaNeon.Models.Funcionario
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<div class="navbar-default " style="background-color:#384892">
+    @using (Html.BeginForm("Index", "Home"))
+    {
+        <button name="button" value="ActionOne" class="button" style="background-color:#384892; border:0;">
+            <img src="~/Content/Imgs/logo.png" />
+        </button>
+    }
+</div>
+<div style="background-color:#384892">
+    <div class="container-fluid" style="background-color:lightgrey">
+        <h2>@Html.DisplayFor(model => model.Nome) @Html.DisplayFor(model => model.Sobrenome)</h2>
+        <div>
+            <h4>Dados Funcionario</h4>
+            <hr />
+            <table class="table" style="border-color:white">
+                <tr>
+                    <td>
+                        <b>@Html.DisplayNameFor(model => model.Nome)</b>:@Html.DisplayFor(model => model.Nome)
+                    </td>
+                    <td>
+                        <b>@Html.DisplayNameFor(model => model.Sobrenome)</b>:@Html.DisplayFor(model => model.Sobrenome)
+                    </td>
+                    <td>
+                        <b>@Html.DisplayNameFor(model => model.NomePai)</b>:@Html.DisplayFor(model => model.NomePai)
+                    </td>
+                    <td>
+                        <b>@Html.DisplayNameFor(model => model.NomeMae)</b>:@Html.DisplayFor(model => model.NomeMae)
+                    </td>
+                    <td>
+                        <b>@Html.DisplayNameFor(model => model.QuantidadeFilhos)</b>:@Html.DisplayFor(model => model.QuantidadeFilhos)
+                    </td>
+                    <td>
+                        <b>@Html.DisplayNameFor(model => model.CPF)</b>:@Html.DisplayFor(model => model.CPF)
+                    </td>
+                    @if ((int)ViewBag.Nv > 2)
+                    {
+                        <td>
+                            <b>@Html.DisplayNameFor(model => model.RG)</b>:@Html.DisplayFor(model => model.RG)
+                        </td>
+                    }
+                    else
+                    {
+                        <td></td>
+                    }
+                </tr>
+                <tr>
+                    @if ((int)ViewBag.Nv > 2)
+                    {
+                        <td>
+                            <b>@Html.DisplayNameFor(model => model.Nascimento)</b>:@Html.DisplayFor(model => model.Nascimento)
+                        </td>
+                        <td>
+                            <b>@Html.DisplayNameFor(model => model.CNH)</b>:@Html.DisplayFor(model => model.CNH)
+                        </td>
+                        <td>
+                            <b>@Html.DisplayNameFor(model => model.TituloEleitor)</b>:@Html.DisplayFor(model => model.TituloEleitor)
+                        </td>
+                        <td>
+                            <b>@Html.DisplayNameFor(model => model.CertMilitar)</b>:@Html.DisplayFor(model => model.CertMilitar)
+                        </td>
+                        <td>
+                            <b>@Html.DisplayNameFor(model => model.PIS)</b>:@Html.DisplayFor(model => model.PIS)
+                        </td>
+                        <td>
+                            <b>@Html.DisplayNameFor(model => model.Admissao)</b>:@Html.DisplayFor(model => model.Admissao)
+                        </td>
+                        <td>
+                            <b>@Html.DisplayNameFor(model => model.Cargo)</b>:@Html.DisplayFor(model => model.Cargo)
+                        </td>
+                    }
+                    else
+                    {
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    }
+                </tr>
+                <tr>
+                    @if ((int)ViewBag.Nv > 2)
+                    {
+                        <td>
+                            <b>@Html.DisplayNameFor(model => model.HorasDia)</b>:@Html.DisplayFor(model => model.HorasDia)
+                        </td>
+                        <td>
+                            <b>@Html.DisplayNameFor(model => model.DiasJornada)</b>:@Html.DisplayFor(model => model.DiasJornada)
+                        </td>
+                        <td>
+                            <b>@Html.DisplayNameFor(model => model.EstadoCivil)</b>:@Html.DisplayFor(model => model.EstadoCivil)
+                        </td>
+                        <td>
+                            <b>@Html.DisplayNameFor(model => model.NomeConjugue)</b>:@Html.DisplayFor(model => model.NomeConjugue)
+                        </td>
+                        <td>
+                            <b>@Html.DisplayNameFor(model => model.Endereco)</b>:@Html.DisplayFor(model => model.Endereco)
+                        </td>
+                        <td>
+                            <b>@Html.DisplayNameFor(model => model.Cidade)</b>:@Html.DisplayFor(model => model.Cidade)
+                        </td>
+                        <td>
+                            <b>@Html.DisplayNameFor(model => model.CEP)</b>:@Html.DisplayFor(model => model.CEP)
+                        </td>
+                        <td>
+                            <b>@Html.DisplayNameFor(model => model.Esta_Ativo)</b>:@Html.DisplayFor(model => model.Esta_Ativo)
+                        </td>
+                    }
+                    else
+                    {
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    }
+                </tr>
+                @if ((int)ViewBag.Nv > 2)
+                {
+                    <tr>
+                        <td colspan="7">
+                            <h4>Dados Salario</h4>
+                        </td>
+                    </tr>
+                    if (ViewBag.Salario != null)
+                    {
+                        <tr>
+                            <td>
+                                <b>Salario Base</b>:@ViewBag.Salario.Base
+                            </td>
+                            <td>
+                                <b>INSS</b>:@ViewBag.Salario.INSS%
+                            </td>
+                            <td>
+                                <b> Salario Familia</b>:@ViewBag.Salario.Familia
+                            </td>
+                            <td colspan="4"></td>
+                        </tr>
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="7">ESTE FUNCIONARIO NÃO POSSUI SALARIO CADASTRADO!</td>
+                        </tr>
+                    }
+                    <tr>
+                        <td colspan="7">
+                            <h4>Dados Bancarios</h4>
+                        </td>
+                    </tr>
+                    if (ViewBag.dadosBancario != null)
+                    {
+                        <tr>
+                            <td>
+                                <b>Banco</b>:@ViewBag.dadosBancario.Banco
+                            </td>
+                            <td>
+                                <b>Agencia</b>:@ViewBag.dadosBancario.AG
+                            </td>
+                            <td>
+                                <b> Conta</b>:@ViewBag.dadosBancario.Conta
+                            </td>
+                            <td colspan="4"></td>
+                        </tr>
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="7">ESTE FUNCIONARIO NÃO POSSUI DADOS BANCARIOS CADASTRADOS!</td>
+                        </tr>
+                    }
+                }
+
+
+            </table>
+        </div>
+
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.FuncionarioId }) |
+            @if (ViewBag.Salario != null)
+            {
+                @Html.ActionLink("Edit Salario", "Edit", "Salarios", new { id = ViewBag.Salario.SalarioId }, null)
+            }
+            else
+            {
+                @Html.ActionLink("Cadastrar Salario", "Create", "Salarios", new { FId = Model.FuncionarioId }, null)
+            }
+            |
+            @if (ViewBag.dadosBancario != null)
+            {
+                @Html.ActionLink("EditDadosBancarios", "Edit", "DadosBancarios", new { id = ViewBag.dadosBancario.DadosBancarioId, funcionarioId = Model.FuncionarioId }, null)
+            }
+            else
+            {
+                @Html.ActionLink("Cadastrar DadosBancarios", "Create" + "/" + (int)Model.FuncionarioId, "DadosBancarios")
+            }
+            |
+            @if (ViewBag.verificar)
+            {
+                @Html.ActionLink("Ferias", "Create" + "/" + (int)Model.FuncionarioId, "Ferias")
+            }
+            else
+            {
+                @Html.ActionLink("Ferias", "index" + "/" + (int)Model.FuncionarioId, "Ferias")
+            }
+
+            |
+            @Html.ActionLink("Voltar", "Index", "home")|
+        </p>
+        <form action="@Url.Action("Filtro","Funcionarios") " method="post">
+            <input type="date" name="d1" />
+            <input type="date" name="d2" />
+            <input type="submit" class="button" value="Pesquisar" />
+        </form>
+
+        <div style="overflow-y: scroll">
+            <table class="table realceLinha" border=1 bordercolor=black>
+                <thead>
+                    <tr>
+                        <th>DataPonto</th>
+                        <th>EntradaManha</th>
+                        <th>SaidaManha</th>
+                        <th>EntradaTarde</th>
+                        <th>SaidaTarde</th>
+                        <th>EntradaExtra</th>
+                        <th>SaidaExtra</th>
+                        <th>Abonar</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <tr>
+                            <td>
+                                <div class="col-md-10">
+                                    <input type="date" name="DataPonto" class="form-control" />
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="col-md-10">
+                                    <input type="time" name="EntradaManha" class="form-control" value=" " />
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="col-md-10">
+                                    <input type="time" name="SaidaManha" class="form-control" value=" " />
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="col-md-10">
+                                    <input type="time" name="EntradaTarde" class="form-control" value=" " />
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="col-md-10">
+                                    <input type="time" name="SaidaTarde" class="form-control" value=" " />
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="col-md-10">
+                                    <input type="time" name="EntradaExtra" class="form-control" value=" " />
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="col-md-10">
+                                    <input type="time" name="SaidaExtra" class="form-control" value=" " />
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="col-md-offset-2 col-md-10">
+                                    @Html.CheckBox("Abonar", false)
+                                </div>
+                            </td>
+
+                            <td>
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Create" class="btn btn-default" />
+                                </div>
+                            </td>
+                        </tr>
+                    }
+
+                    @{var pontos = ViewBag.pontos; }
+
+                    @foreach (var dados in pontos)
+                    {
+
+                        <tr>
+                            <td>@dados.DataPonto.ToString("dd/MM/yyyy")</td>
+                            @if (dados.EntradaManha == null)
+                            {
+                                <td>--:--</td>
+                            }
+                            else
+                            {
+                                <td>@dados.EntradaManha.ToString("HH:mm")</td>
+                            }
+                            @if (dados.SaidaManha == null)
+                            {
+                                <td>--:--</td>
+                            }
+                            else
+                            {
+                                <td>@dados.SaidaManha.ToString("HH:mm")</td>
+                            }
+                            @if (dados.EntradaTarde == null)
+                            {
+                                <td>--:--</td>
+                            }
+                            else
+                            {
+                                <td>@dados.EntradaTarde.ToString("HH:mm")</td>
+                            }
+                            @if (dados.SaidaTarde == null)
+                            {
+                                <td>--:--</td>
+                            }
+                            else
+                            {
+                                <td>@dados.SaidaTarde.ToString("HH:mm")</td>
+                            }
+                            @if (dados.EntradaExtra == null)
+                            {
+                                <td>--:--</td>
+                            }
+                            else
+                            {
+                                <td>@dados.EntradaExtra.ToString("HH:mm")</td>
+                            }
+                            @if (dados.SaidaExtra == null)
+                            {
+                                <td>--:--</td>
+                            }
+                            else
+                            {
+                                <td>@dados.SaidaExtra.ToString("HH:mm")</td>
+                            }
+                            <td>@dados.Abonar</td>
+                            <td>@Html.ActionLink("Editar", "Edit", "Pontos", new { id = dados.PontoId }, null)</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

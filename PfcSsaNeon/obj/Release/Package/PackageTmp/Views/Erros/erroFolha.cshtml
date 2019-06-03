@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "erroFolha";
+}
+
+<div class="navbar-default " style="background-color:#384892">
+    @using (Html.BeginForm("Index", "Home"))
+    {
+        <button name="button" value="ActionOne" class="button" style="background-color:#384892; border:0;">
+            <img src="~/Content/Imgs/logo.png" />
+        </button>
+    }
+</div>
+
+<div id="Teladedados">
+    <div class="tabeladedados" style="margin-left: 100px;margin-right: 100px; overflow:scroll;background-color:lightgrey">
+        <h1 class="text-center">OCORREU UM ERRO AO GERAR A FOLHA DE PAGAMENTO</h1>
+        <h2 class="text-center">VERIFIQUE TODAS OS DADOS CADASTRADOS DO FUNCIONARIO</h2>
+        <input type='button' value='Voltar' onclick='history.go(-1)' style="margin-left: 50%" />
+    </div>
+</div>
+

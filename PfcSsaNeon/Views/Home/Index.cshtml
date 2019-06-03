@@ -1,0 +1,90 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+
+<div id="navsuperior">
+    <img src="~/Content/imgs/logo.png" alt="Alternate Text" />
+    <div id="configTP">
+        <p class="txtnomeusuario" style="color:white">@ViewBag.Nome</p>
+        <div id="BtnTP">
+            <button>
+                @Html.ActionLink("Alterar Senha", "ForgotPassword", "Account")
+            </button>
+            <button>
+                @Html.ActionLink("LogOff", "LogOff", "Account")
+            </button>
+        </div>
+    </div>
+</div>
+
+<div id="Teladedados">
+    <!-- barra de menu -->
+    <div class="menuvertical">
+        <ul id="nav">
+            <li>
+                @Html.ActionLink("Recursos humanos", "Index", "Home")
+            </li>
+            <li>
+                @Html.ActionLink("Finanças", "Index", "DadosNotas")
+            </li>
+            <li>
+                @Html.ActionLink("Usuários", "GerenciarUsuarios", "Account")
+            </li>
+        </ul>
+    </div>
+
+    <div class="tabeladedados">
+
+        @{var f1 = ViewBag.f1;}
+        @{var dtAtual = System.DateTime.Now;}
+        <div class="aTabela" style="overflow:scroll;margin-top: 00px;">
+            <button>@Html.ActionLink("Cadastrar", "Create", "Funcionarios")</button>
+            <button>@Html.ActionLink("Gerar Folha Pagamento", "GerarFolha", "Home")</button>            
+            <table class="table" id="tabelaPrincipal" border="1">
+
+                <thead>
+                    <tr>
+                        <th>Alerta</th>
+                        <th>Nome</th>
+                        <th>CPF</th>
+                        <th>Cargo</th>
+                        <th>Inicio Ferias</th>
+                        <th>Fim Ferias</th>
+                        <th>status</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @{ foreach (var dados in f1)
+                        {
+                            <tr>
+                                @if (dados.FimFerias.AddYears(1) <= dtAtual)
+                                {
+                                    <td style="background-color:red"></td>
+                                }
+                                else
+                                {
+                                    if (dados.FimFerias.AddMonths(11) <= dtAtual)
+                                    {
+                                        <td style="background-color:yellow"></td>
+                                    }
+                                    else
+                                    {
+                                        <td style="background-color:green"></td>
+                                    }
+                                }
+                                <td>@dados.Nome</td>
+                                <td>@dados.CPF</td>
+                                <td>@dados.Cargo</td>
+                                <td>@dados.InicioFerias.ToString("dd/MM/yyyy")</td>
+                                <td>@dados.FimFerias.ToString("dd/MM/yyyy")</td>
+                                <td>@Html.ActionLink("Detalhes", "Details", "Funcionarios", new { id = dados.FuncionarioId }, null)</td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

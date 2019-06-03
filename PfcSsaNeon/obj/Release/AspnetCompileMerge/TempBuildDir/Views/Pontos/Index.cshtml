@@ -1,0 +1,81 @@
+﻿@model IEnumerable<PfcSsaNeon.Models.Ponto>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Funcionarios.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DataPonto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EntradaManha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SaidaManha)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EntradaTarde)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SaidaTarde)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EntradaExtra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SaidaExtra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Abonar)
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Funcionarios.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataPonto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EntradaManha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SaidaManha)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EntradaTarde)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SaidaTarde)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EntradaExtra)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SaidaExtra)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Abonar)
+            </td>
+
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.PontoId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.PontoId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.PontoId })
+            </td>
+        </tr>
+    }
+</table>

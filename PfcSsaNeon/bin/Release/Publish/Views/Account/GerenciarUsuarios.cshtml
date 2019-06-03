@@ -1,0 +1,111 @@
+﻿
+@{
+    ViewBag.Title = "GerenciarUsuarios";
+}
+
+<div id="navsuperior">
+    <img src="~/Content/imgs/logo.png" alt="Alternate Text" />
+    <div id="configTP">
+        <p class="txtnomeusuario" style="color:white">@ViewBag.Nome</p>
+        <div id="BtnTP">
+            <button>
+                @Html.ActionLink("Alterar Senha", "ForgotPassword", "Account")
+            </button>
+            <button>
+                @Html.ActionLink("LogOff", "LogOff", "Account")
+            </button>
+        </div>
+    </div>
+</div>
+
+<div id="Teladedados">
+    <!-- barra de menu -->
+    <div class="menuvertical">
+        <ul id="nav">
+            <li>
+                @Html.ActionLink("Recursos humanos", "Index", "Home")
+            </li>
+            <li>
+                @Html.ActionLink("Finanças", "Index", "DadosNotas")
+            </li>
+            <li>
+                @Html.ActionLink("Usuários", "GerenciarUsuarios", "Account")
+            </li>
+        </ul>
+    </div>
+
+    <div class="tabeladedados">
+
+        @{var f1 = ViewBag.f1;}
+        @{var dtAtual = System.DateTime.Now;}
+        <div class="aTabela" style="overflow:scroll;margin-top: 00px;">
+            @if (ViewBag.verificar == null)
+            {
+                <p>
+                    @Html.ActionLink("Inativos", "GerenciarUsuarios", "Account", new { ativo = false }, null)
+                </p>
+            }
+            else
+            {
+                <p>
+                    @Html.ActionLink("Ativos", "GerenciarUsuarios", "Account")
+                </p>
+            }
+            <table class="table" id="tabelaPrincipalFinancas" border="1">
+                <tr>
+                    <th>
+                        E-Mail
+                    </th>
+                    <th>
+                        permissões RH
+                    </th>
+                    <th>
+                        permissões Financeiro
+                    </th>
+                    <th>
+                        permissões Administrador
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                    <th>Gerenciar permissões</th>
+                    <th>Desativar</th>
+                </tr>
+
+                @foreach (var item in ViewBag.usuarios)
+                {
+                    <tr>
+                        <th>
+                            @item.Email
+                        </th>
+                        <th>
+                            @item.PRh
+                        </th>
+                        <th>
+                            @item.PFinanceiro
+                        </th>
+                        <th>
+                            @item.PUsuario
+                        </th>
+                        <th>
+                            @item.Status
+                        </th>
+                        <th>@Html.ActionLink("Gerenciar", "EditarUsuario", "Account", new { Email = item.Email }, null)</th>
+                        @if (ViewBag.verificar == null)
+                        {
+                            <th>
+                                @Html.ActionLink("Desativar", "Desativar", "Account", new { Email = item.Email }, null)
+                            </th>
+                        }
+                        else
+                        {
+                            <th>
+                                @Html.ActionLink("Ativar", "Ativar", "Account", new { Email = item.Email }, null)
+                            </th>
+                        }
+                    </tr>
+                }
+            </table>
+        </div>
+    </div>
+</div>

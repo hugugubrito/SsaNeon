@@ -1,0 +1,46 @@
+﻿@model PfcSsaNeon.Models.Ferias
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<div>
+    <h4>Ferias de</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        @{
+            foreach (var ferias in ViewBag.ferias)
+            {
+                <dt>
+                    Nome
+                </dt>
+
+                <dd>
+                    @ferias.Nome
+                </dd>
+
+                <dt>
+                    InicioFerias
+                </dt>
+
+                <dd>
+                    @ferias.InicioFerias
+                </dd>
+
+                <dt>
+                    Dias
+                </dt>
+
+                <dd>
+                    @ferias.Dias
+                </dd>
+            }
+        }
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FeriasId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,187 @@
+﻿@model PfcSsaNeon.Helper.FolhaSalario
+
+@{
+    ViewBag.Title = "FolhaPDF";
+    Layout = "~/Views/Shared/LayoutFolhaPDF.cshtml";
+}
+
+<h2>Funcionario:</h2>
+<table class="table" style="font-size:large">
+    <tr>
+        <th>
+            Nome
+        </th>
+        <th>
+            Sobrenome
+        </th>
+        <th>
+            Admissao
+        </th>
+        <th>
+            CPF
+        </th>
+        <th>
+            RG
+        </th>
+        <th>
+            Valor
+        </th>
+        <th>
+            Forma de Pagamento
+        </th>
+    </tr>
+
+    <tr>
+        <td>
+            @Html.DisplayFor(model => model.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Funcionario.Sobrenome)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Funcionario.Admissao)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Funcionario.CPF)
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.Funcionario.RG)
+        </td>
+        <td>
+            @ViewBag.Total
+        </td>
+        <td>
+            @ViewBag.FormaPagamento
+        </td>
+    </tr>
+</table>
+<h3>Dados Bancarios:</h3>
+<table class="table" style="font-size:large">
+    <tr>
+        <th>
+            Banco:
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.B.Banco)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Agencia:
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.B.AG)
+        </td>
+    </tr>
+    <tr>
+        <th>
+            Conta:
+        </th>
+        <td>
+            @Html.DisplayFor(model => model.B.Conta)
+        </td>
+    </tr>
+</table>
+<h3>Bonificação:</h3>
+@foreach (var a in Model.D)
+{
+    if (a.Valor < 0)
+    {
+        <table class="table" style="font-size:large">
+            <tr>
+                <th>
+                    Descricao:
+                </th>
+                <td>
+                    @a.Descricao
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Data:
+                </th>
+                <td>
+                    @a.Data
+                </td>
+            </tr>
+        </table>
+        <table class="table" style="font-size:large">
+            <tr>
+                @{ if (a.Percento == true)
+                    {
+                        <th>Bonificação percentual</th>
+                    }
+                }
+            </tr>
+            <tr>
+                <th>
+                    Valor:
+                </th>
+                <td>
+                    @{var b = a.Valor * -1;}
+                    @b
+                </td>
+            </tr>
+            <tr>
+                <th></th>
+                <th></th>
+            </tr>
+            <tr>
+                <th></th>
+                <th></th>
+            </tr>
+        </table>
+    }
+
+}
+<h3>Descontos:</h3>
+@foreach (var a in Model.D)
+{
+    if (a.Valor >= 0)
+    {
+        <table class="table" style="font-size:large">
+            <tr>
+                <th>
+                    Descrição:
+                </th>
+                <td>
+                    @a.Descricao
+                </td>
+            </tr>
+            <tr>
+                <th>
+                    Data:
+                </th>
+                <td>
+                    @a.Data
+                </td>
+            </tr>
+        </table>
+        <table class="table" style="font-size:large">
+            <tr>
+            <tr>
+                @{ if (a.Percento == true)
+                    {
+                        <th>Desconto percentual</th>
+                    }
+                }
+            </tr>
+            <tr>
+                <th>
+                    Valor:
+                </th>
+                <td>
+                    @a.Valor
+                </td>
+            </tr>
+        </table>
+    }
+
+}
+<footer class="panel-footer">
+    <h3>@DateTime.Now.ToString("dd/MM/yyyy")</h3>
+    <p style="margin-top:100px">
+        ————————————————————————————
+        <h1>@Html.DisplayFor(model => model.Nome) @Html.DisplayFor(model => model.Funcionario.Sobrenome)</h1>
+    </p>
+</footer>

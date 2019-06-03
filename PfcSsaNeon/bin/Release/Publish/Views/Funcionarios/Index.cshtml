@@ -1,0 +1,146 @@
+﻿@model IEnumerable<PfcSsaNeon.Models.Funcionario>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sobrenome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NomePai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NomeMae)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.QuantidadeFilhos)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CPF)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RG)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nascimento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CNH)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TituloEleitor)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CertMilitar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PIS)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Admissao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cargo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EstadoCivil)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NomeConjugue)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Endereco)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cidade)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CEP)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Esta_Ativo)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sobrenome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomePai)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeMae)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuantidadeFilhos)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CPF)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RG)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nascimento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CNH)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TituloEleitor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CertMilitar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PIS)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Admissao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cargo)
+            </td>           
+            <td>
+                @Html.DisplayFor(modelItem => item.EstadoCivil)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeConjugue)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Endereco)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CEP)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Esta_Ativo)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.FuncionarioId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.FuncionarioId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.FuncionarioId })
+            </td>
+        </tr>
+    }
+</table>

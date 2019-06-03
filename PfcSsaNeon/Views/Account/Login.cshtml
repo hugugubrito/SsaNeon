@@ -1,0 +1,62 @@
+﻿@using PfcSsaNeon.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Efetuar login";
+}
+<section id="loginForm">
+    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+        <div id="barralogin">
+
+            <img id="imglogo" src="~/Content/imgs/logo.png" alt="Alternate Text" />
+
+            <div id="losen">
+                <p class="l1">@Html.LabelFor(m => m.Email)</p>
+                <div class="l1">
+                    @Html.TextBoxFor(m => m.Email)
+                    <p style="margin-top:5px;">
+                        @Html.ActionLink("Registrar como um novo usuário", "Register")
+                    </p>
+                </div>
+
+                <p class="l1">@Html.LabelFor(m => m.Password)</p>
+                <div class="l1">
+                    @Html.PasswordFor(m => m.Password)
+                    <p style="margin-top:5px">
+                        @Html.ActionLink("Esqueceu a Senha ?", "ForgotPassword")
+                    </p>
+                </div>
+
+
+                <input class="l1" type="submit" value="Login" />
+            </div>
+        </div>
+        <div class="container-fluid" style="background-color:lightgrey">
+            <div class="row">
+                <div class="col-lg-6">
+                    <img id="img1" src="~/Content/imgs/gestaoimg.png" alt="Alternate Text" />
+                </div>
+                <div class="col-lg-6">
+                    <div class="text-right">
+                        @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                    </div>
+                    <div style="margin-top: 250px;margin-left: 100px;">
+                        <h1>
+                            Sistema de gestão de
+                        </h1>
+                        <h1>
+                            recursos humanos e finanças
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h5>© Produzido por DevSoftWare ©</h5>
+    }
+</section>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

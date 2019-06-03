@@ -1,0 +1,148 @@
+﻿@model PfcSsaNeon.Models.DadosNota
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="navbar-default " style="background-color:#384892">
+    @using (Html.BeginForm("Index", "Home"))
+    {
+        <button name="button" value="ActionOne" class="button" style="background-color:#384892; border:0;">
+            <img src="~/Content/Imgs/logo.png" />
+        </button>
+    }
+</div>
+<div id="Teladedados">
+    <div class="tabeladedados" style="margin-left: 100px;margin-right: 100px; overflow:scroll;background-color:lightgrey">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-6">
+                    @foreach (var item in ViewBag.arquivos)
+                    {
+                        <table style="margin-bottom:25px;margin-top:25px">
+                            <tr>
+                                <td>
+                                    @item.ArquivoNotaId
+                                </td>
+                                <td>
+                                    @item.NomeArquivo
+                                </td>
+                                <td >
+                                    <button>
+                                        @Html.ActionLink("Download", "Download", new { id = item.ArquivoNotaId })
+                                    </button>
+                                </td>
+                            </tr>
+                        </table>
+
+                        if (MimeMapping.GetMimeMapping(item.NomeArquivo) == "application/pdf")
+                        {
+                            <dd>
+                                <embed height="700" width="700" name="PDF" src="~/Notas/@item.NomeArquivo" type="application/pdf" />
+                            </dd>
+                        }
+                        else if (MimeMapping.GetMimeMapping(item.NomeArquivo) == "image/jpeg" || MimeMapping.GetMimeMapping(item.NomeArquivo) == "image/jpg" || MimeMapping.GetMimeMapping(item.NomeArquivo) == "image/png")
+                        {
+                            <dd>
+                                <img height="700" width="700" src="~/Notas/@item.NomeArquivo" name="IMG" />
+                            </dd>
+                        }
+                    }
+                </div>
+                <div class="col-lg-6" style="font-size:x-large">
+                    <div>
+                        <h2>DadosNota</h2>
+                        <hr />
+                        <dl class="dl-horizontal">
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Cliente)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Cliente)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.CNPJ)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.CNPJ)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.NumeroNf)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.NumeroNf)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Emissao)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Emissao)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Valor)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Valor)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Vencimento)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Vencimento)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Observacao)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Observacao)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Status)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Status)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Pagamento)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Pagamento)
+                            </dd>
+
+                            <dt>
+                                @Html.DisplayNameFor(model => model.Cobranca)
+                            </dt>
+
+                            <dd>
+                                @Html.DisplayFor(model => model.Cobranca)
+                            </dd>
+
+                        </dl>
+                    </div>
+                    <p>
+                        @Html.ActionLink("Editar", "Edit", new { id = Model.DadosNotaId }) |
+                        @Html.ActionLink("Voltar", "Index")
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

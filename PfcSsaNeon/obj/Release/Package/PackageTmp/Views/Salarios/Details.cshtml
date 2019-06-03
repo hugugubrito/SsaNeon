@@ -1,0 +1,49 @@
+﻿@model PfcSsaNeon.Models.Salario
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<div>
+    <h4>Salario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Funcionarios.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Funcionarios.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Base)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Base)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.INSS)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.INSS)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Familia)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Familia)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SalarioId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

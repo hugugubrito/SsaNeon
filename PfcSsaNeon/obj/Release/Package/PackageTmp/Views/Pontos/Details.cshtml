@@ -1,0 +1,88 @@
+﻿@model PfcSsaNeon.Models.Ponto
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div>
+    <h4>Ponto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Funcionarios.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Funcionarios.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataPonto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataPonto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EntradaManha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EntradaManha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SaidaManha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SaidaManha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EntradaTarde)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EntradaTarde)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SaidaTarde)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SaidaTarde)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EntradaExtra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EntradaExtra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SaidaExtra)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SaidaExtra)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Abonar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Abonar)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PontoId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
